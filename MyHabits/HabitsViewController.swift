@@ -14,6 +14,7 @@ class HabitsViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.delegate = self
         table.dataSource = self
+        table.register(HeaderTableViewCell.self, forCellReuseIdentifier: HeaderTableViewCell.identifier)
         return table
     }()
     
@@ -21,6 +22,7 @@ class HabitsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
+        navigationController?.navigationBar.prefersLargeTitles = true
         layout()
     }
     
@@ -42,7 +44,9 @@ class HabitsViewController: UIViewController {
 // MARK: - UITableViewDelegate
 
 extension HabitsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        HeaderTableViewCell()
+    }
 }
 
 // MARK: - UITableViewDataSource

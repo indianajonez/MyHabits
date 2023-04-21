@@ -34,3 +34,11 @@ extension UIColor {
 //          self.a = a
 //      }
 //  }
+
+
+
+extension UIView {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}
