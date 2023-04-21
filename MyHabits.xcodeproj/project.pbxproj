@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F33C707A29F1348E008A0C1D /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C707929F1348E008A0C1D /* Extentions.swift */; };
+		F33C707C29F13865008A0C1D /* MyHabitsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33C707B29F13865008A0C1D /* MyHabitsViewCell.swift */; };
+		F356808029EDA6DE00AA8C20 /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356807F29EDA6DE00AA8C20 /* TapBarController.swift */; };
+		F356808229EDA9D100AA8C20 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356808129EDA9D100AA8C20 /* HabitsViewController.swift */; };
+		F356808429EDAA1700AA8C20 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F356808329EDAA1700AA8C20 /* InfoViewController.swift */; };
 		F38056EE29ED985B007C5031 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38056ED29ED985B007C5031 /* AppDelegate.swift */; };
 		F38056F029ED985B007C5031 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38056EF29ED985B007C5031 /* SceneDelegate.swift */; };
 		F38056F229ED985B007C5031 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38056F129ED985B007C5031 /* ViewController.swift */; };
@@ -16,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F33C707929F1348E008A0C1D /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		F33C707B29F13865008A0C1D /* MyHabitsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitsViewCell.swift; sourceTree = "<group>"; };
+		F356807F29EDA6DE00AA8C20 /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
+		F356808129EDA9D100AA8C20 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
+		F356808329EDAA1700AA8C20 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		F38056EA29ED985B007C5031 /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F38056ED29ED985B007C5031 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F38056EF29ED985B007C5031 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +66,10 @@
 		F38056EC29ED985B007C5031 /* MyHabits */ = {
 			isa = PBXGroup;
 			children = (
+				F356807F29EDA6DE00AA8C20 /* TapBarController.swift */,
+				F356808329EDAA1700AA8C20 /* InfoViewController.swift */,
+				F356808129EDA9D100AA8C20 /* HabitsViewController.swift */,
+				F33C707B29F13865008A0C1D /* MyHabitsViewCell.swift */,
 				F38056ED29ED985B007C5031 /* AppDelegate.swift */,
 				F38056EF29ED985B007C5031 /* SceneDelegate.swift */,
 				F38056F129ED985B007C5031 /* ViewController.swift */,
@@ -63,6 +77,7 @@
 				F38056F629ED985D007C5031 /* Assets.xcassets */,
 				F38056F829ED985D007C5031 /* LaunchScreen.storyboard */,
 				F38056FB29ED985D007C5031 /* Info.plist */,
+				F33C707929F1348E008A0C1D /* Extentions.swift */,
 			);
 			path = MyHabits;
 			sourceTree = "<group>";
@@ -141,6 +156,11 @@
 				F38056F229ED985B007C5031 /* ViewController.swift in Sources */,
 				F38056EE29ED985B007C5031 /* AppDelegate.swift in Sources */,
 				F38056F029ED985B007C5031 /* SceneDelegate.swift in Sources */,
+				F356808229EDA9D100AA8C20 /* HabitsViewController.swift in Sources */,
+				F356808429EDAA1700AA8C20 /* InfoViewController.swift in Sources */,
+				F33C707C29F13865008A0C1D /* MyHabitsViewCell.swift in Sources */,
+				F356808029EDA6DE00AA8C20 /* TapBarController.swift in Sources */,
+				F33C707A29F1348E008A0C1D /* Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

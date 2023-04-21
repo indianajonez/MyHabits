@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HabitsViewController.swift
 //  MyHabits
 //
 //  Created by Ekaterina Saveleva on 17.04.2023.
@@ -7,14 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class HabitsViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "First VC"
+        view.backgroundColor = .systemGray6
     }
-
-
 }
-
