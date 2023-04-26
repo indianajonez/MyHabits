@@ -26,7 +26,7 @@ class MyHabitsViewController: UIViewController {
     private func layout() {
         view.addSubview(scrollView)
         scrollView.addSubview(MyHabitsView)
-        //[logoImage, logInButton].forEach{loginView.addSubview($0)} // удалила отсюда loginPassword, loginText,
+        
         
         
         NSLayoutConstraint.activate([
