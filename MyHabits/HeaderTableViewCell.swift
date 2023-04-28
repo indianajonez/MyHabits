@@ -8,6 +8,10 @@
 import UIKit
 
 class HeaderTableViewCell: UITableViewCell {
+    
+   // let tableView = UITableView(frame: .zero, style: .insetGrouped)
+
+    var complited: [Habit]? = HabitsStore.shared.habits.filter({$0.isAlreadyTakenToday})
 
     private lazy var title: UILabel = {
         let title = UILabel()
@@ -21,7 +25,7 @@ class HeaderTableViewCell: UITableViewCell {
         let percent = UILabel()
         percent.translatesAutoresizingMaskIntoConstraints = false
         percent.textColor = .lightGray
-        percent.text = "50%"
+        percent.text = "\(HabitsStore.shared.todayProgress * 100) %"
         return percent
     }()
     
@@ -30,12 +34,13 @@ class HeaderTableViewCell: UITableViewCell {
         progress.translatesAutoresizingMaskIntoConstraints = false
         progress.progressViewStyle = .default
         progress.progressTintColor = .purple
-        progress.progress = 0.5
+        progress.progress = HabitsStore.shared.todayProgress
         return progress
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        //reloadData() можно реализовать чтобы была прокрутка обневления данных
         layout()
     }
     

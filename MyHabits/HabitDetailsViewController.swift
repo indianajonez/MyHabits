@@ -8,6 +8,16 @@
 import UIKit
 
 class HabitDetailsViewController: UIViewController {
+    
+    private func makeBarItem() {
+        let buttonItem = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(tapAction))
+        navigationItem.rightBarButtonItem = buttonItem
+    }
+    @objc private func tapAction(){ // не понимаю куда должна вести кнопка, если прокто к сохранению, то не знаю как это офрмить
+        let infoVC = HabitsCreateViewController()
+        infoVC.title = "Править"
+        navigationController?.pushViewController(infoVC, animated: true)
+    }
 
     private lazy var table: UITableView = {
         let table = UITableView()
@@ -22,6 +32,7 @@ class HabitDetailsViewController: UIViewController {
         view.backgroundColor = .systemGray2
         navigationController?.navigationBar.prefersLargeTitles = false
         layout()
+        makeBarItem()
 
         // Do any additional setup after loading the view.
     }

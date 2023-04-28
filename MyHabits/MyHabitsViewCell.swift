@@ -9,6 +9,8 @@ import UIKit
 
 class MyHabitsViewController: UIViewController {
     
+    
+    
     private let notificationCenter = NotificationCenter.default
     
     private lazy var scrollView: UIScrollView = {
@@ -26,6 +28,7 @@ class MyHabitsViewController: UIViewController {
     private func layout() {
         view.addSubview(scrollView)
         scrollView.addSubview(MyHabitsView)
+        
         
         
         

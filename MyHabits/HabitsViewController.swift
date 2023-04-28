@@ -12,16 +12,17 @@ class HabitsViewController: UIViewController {
     private lazy var plusButton: UIBarButtonItem = {
         let plusButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(performPlusButton))
         plusButton.width = 0
-        plusButton.tintColor = .magenta
+        plusButton.tintColor = UIColor(red: 161, green: 22, blue: 204)
         return plusButton
     }()
     
     
     private lazy var tableHabits: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero , style: .insetGrouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.delegate = self
         table.dataSource = self
+        //table.separatorInset = .init(top: 10, left: 10, bottom: 10, right: 10)
         table.register(HeaderTableViewCell.self, forCellReuseIdentifier: HeaderTableViewCell.identifier)
         table.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
         return table
@@ -36,9 +37,16 @@ class HabitsViewController: UIViewController {
         layout()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableHabits.reloadData()
+    }
+    
     @objc func performPlusButton() {
-        let secondVC = SecondViewController()
-        self.navigationController?.pushViewController(secondVC, animated: true)
+        let infoVC = HabitsCreateViewController()
+        navigationController?.navigationBar.prefersLargeTitles = false
+        infoVC.title = "Создать"
+        navigationController?.pushViewController(infoVC, animated: true)
         
     }
     
@@ -63,18 +71,16 @@ class HabitsViewController: UIViewController {
 // MARK: - UITableViewDelegate
 
 extension HabitsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        HeaderTableViewCell()
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        130
+        indexPath.row == 0 ? UITableView.automaticDimension : 130
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detail = HabitDetailsViewController()
         detail.title = "Detail \(indexPath.row)"
-        navigationController?.pushViewController(detail, animated: true)
+        navigationController?.pushViewController(HabitDetailsViewController(), animated: true)
     }
 }
 
@@ -82,15 +88,26 @@ extension HabitsViewController: UITableViewDelegate {
 
 extension HabitsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        HabitsStore.shared.habits.count + 1
     }
 
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier) as? CustomTableViewCell else {return UITableViewCell()}
-          cell.selectionStyle = .none
-          return cell
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier) as? HeaderTableViewCell else {return UITableViewCell()}
+            cell.selectionStyle = .none
+            
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier) as? CustomTableViewCell else {return UITableViewCell()}
+            cell.selectionStyle = .none
+            cell.setCell(HabitsStore.shared.habits[indexPath.row - 1])
+            
+            //print(HabitsStore.shared.habits)
+            
+            return cell
+        }
     }
-
 }
 
 

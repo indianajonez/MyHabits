@@ -18,7 +18,9 @@ class TabBarController: UITabBarController {
         UINavigationBar.appearance().backgroundColor = .systemGray6
         //UIBarButtonItem.appearance().tintColor = UIColor.red
         UITabBar.appearance().backgroundColor = .systemGray6
-        UITabBar.appearance().barTintColor = .magenta // пока не работает, таббар остается голубым когда наводишь  курсор
+        UITabBar.appearance().barTintColor = UIColor(red: 242, green: 242, blue: 247)
+        UITabBar.appearance().tintColor = UIColor(red: 161, green: 22, blue: 204)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 161, green: 22, blue: 204)], for:.normal)// пока не работает, таббар остается голубым когда наводишь  курсор
     }
     
     func setupControllers() {

@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  HabitsCreateViewController.swift
 //  MyHabits
 //
 //  Created by Ekaterina Saveleva on 24.04.2023.
@@ -7,7 +7,20 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class HabitsCreateViewController: UIViewController {
+    
+    var colorFromPicker: UIColor?
+    
+    private func makeBarItem() {
+        let buttonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(tapAction))
+        navigationItem.rightBarButtonItem = buttonItem
+    }
+    @objc private func tapAction(){ // не понимаю куда должна вести кнопка, если прокто к сохранению, то не знаю как это офрмить 
+        let habit = Habit(name: textField.text ?? "", date: picker.date, color: self.colorFromPicker ?? .black)
+        HabitsStore.shared.habits.append(habit)
+        
+    }
+
     
     private lazy var labelName: UILabel = {
         let label = UILabel()
@@ -54,6 +67,7 @@ class SecondViewController: UIViewController {
         colorPicker.modalPresentationStyle = .popover
         colorPicker.popoverPresentationController?.sourceItem = self.navigationItem.rightBarButtonItem
         self.present(colorPicker, animated: true)
+        
     }
     
     private lazy var labelTime: UILabel = {
@@ -99,6 +113,7 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         layout()
+        makeBarItem()
     }
     
     @objc func datePickerChange(paramdatePicker: UIDatePicker) { //метод
@@ -151,6 +166,9 @@ class SecondViewController: UIViewController {
     
 }
 
-extension SecondViewController: UIColorPickerViewControllerDelegate {
-    
+extension HabitsCreateViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
+        self.colorFromPicker = color
+        self.colorPicker.tintColor = color
+    }
 }
